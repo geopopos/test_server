@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://r6w0ksa5p1v3"]
+
+[ext_resource type="Script" path="res://lobby_menu.gd" id="1_k0cca"]
+
+[node name="Lobby Menu" type="Node2D"]
+script = ExtResource("1_k0cca")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+
+[node name="Create Game" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Create Game"
+
+[node name="Join Game" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Join Game"
+
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/Create Game" to="." method="_on_create_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/Join Game" to="." method="_on_join_game_pressed"]

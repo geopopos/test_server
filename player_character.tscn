@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://btint631hjvml"]
+
+[ext_resource type="Script" path="res://player_character.gd" id="1_1fuqi"]
+[ext_resource type="Texture2D" uid="uid://bnh0tb1ba3mtb" path="res://icon.svg" id="1_i5e21"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j68qm"]
+size = Vector2(124, 125)
+
+[node name="PlayerCharacter" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_1fuqi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_j68qm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i5e21")
+
+[node name="PeerID" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -92.0
+offset_right = 20.0
+offset_bottom = -69.0
+horizontal_alignment = 1
+
+[node name="ChatLabel" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -127.0
+offset_right = 20.0
+offset_bottom = -104.0
+horizontal_alignment = 1
+
+[node name="ChatTimeout" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="ChatTimeout" to="." method="_on_chat_timeout_timeout"]
