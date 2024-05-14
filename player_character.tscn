@@ -1,42 +1,44 @@
 [gd_scene load_steps=14 format=3 uid="uid://btint631hjvml"]
 
 [ext_resource type="Script" path="res://player_character.gd" id="1_1fuqi"]
-[ext_resource type="Texture2D" uid="uid://d0hjbrgmsq4tu" path="res://Art/Old/Human/IDLE/base_idle_strip9.png" id="2_e54r4"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_twith"]
+load_path = "res://.godot/imported/base_idle_strip9.png-88471daba06b0c3c27f52b26f5258c61.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_etogh"]
-atlas = ExtResource("2_e54r4")
+atlas = SubResource("CompressedTexture2D_twith")
 region = Rect2(0, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tay6"]
-atlas = ExtResource("2_e54r4")
+atlas = SubResource("CompressedTexture2D_twith")
 region = Rect2(96, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wvqrh"]
-atlas = ExtResource("2_e54r4")
+atlas = SubResource("CompressedTexture2D_twith")
 region = Rect2(192, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dydcx"]
-atlas = ExtResource("2_e54r4")
+atlas = SubResource("CompressedTexture2D_twith")
 region = Rect2(288, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqdji"]
-atlas = ExtResource("2_e54r4")
+atlas = SubResource("CompressedTexture2D_twith")
 region = Rect2(384, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xhlso"]
-atlas = ExtResource("2_e54r4")
+atlas = SubResource("CompressedTexture2D_twith")
 region = Rect2(480, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ipd5"]
-atlas = ExtResource("2_e54r4")
+atlas = SubResource("CompressedTexture2D_twith")
 region = Rect2(576, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qojw"]
-atlas = ExtResource("2_e54r4")
+atlas = SubResource("CompressedTexture2D_twith")
 region = Rect2(672, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xmxbj"]
-atlas = ExtResource("2_e54r4")
+atlas = SubResource("CompressedTexture2D_twith")
 region = Rect2(768, 0, 96, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x0w32"]
