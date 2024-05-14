@@ -7,9 +7,9 @@ var player_character = preload("res://player_character.tscn")
 func _ready():
 	Lobby.player_loaded.rpc_id(1)
 	var peer_id = multiplayer.get_unique_id()
-	$CanvasLayer/VBoxContainer/PeerID.text = str(peer_id)
-	$CanvasLayer/VBoxContainer/PlayerInfo.text = str(Lobby.players[peer_id])
-	var start_game_button = $CanvasLayer/VBoxContainer/StartGame
+	$GameUI/VBoxContainer/PeerID.text = str(peer_id)
+	$GameUI/VBoxContainer/PlayerInfo.text = str(Lobby.players[peer_id])
+	var start_game_button = $GameUI/VBoxContainer/StartGame
 	
 	if multiplayer.is_server():
 		start_game_button.visible = true
@@ -38,16 +38,23 @@ func start_game():
 func _on_start_game_pressed():
 	start_game()
 
-func _on_submit_pressed():
-	var chat = $CanvasLayer/HBoxContainer/Chat
-	var message = chat.text
-	chat.text = ""
-	var player = get_node(str(multiplayer.get_unique_id()))
-	player.set_chat(message)
-	set_chat.rpc(message)
+# deprecated moved this to the GameUI node
+#func _on_submit_pressed():
+	#var chat = $GameUI/HBoxContainer/Chat
+	#var message = chat.text
+	#chat.text = ""
+	#var player = get_node(str(multiplayer.get_unique_id()))
+	#player.set_chat(message)
+	#set_chat.rpc(message)
 
 @rpc("any_peer", "reliable")
 func set_chat(message):
 	var peer_id = multiplayer.get_remote_sender_id()
 	var player = get_node(str(peer_id))
 	player.set_chat(message)
+
+
+func _on_game_ui_chat_message_sent(message):
+	var player = get_node(str(multiplayer.get_unique_id()))
+	player.set_chat(message)
+	set_chat.rpc(message)

@@ -7,6 +7,11 @@ var client_input: Vector2
 
 func _ready():
 	$PeerID.text = name
+	var label_color = "orange"
+	if name == str(multiplayer.get_unique_id()):
+		label_color = "green"
+	$PeerID.add_theme_color_override("font_color", label_color)
+	
 
 func _physics_process(delta):
 	var peer_id = multiplayer.get_unique_id()
